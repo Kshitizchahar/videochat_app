@@ -24,7 +24,9 @@ samples, guidance on mobile development, and a full API reference.
 ![4](https://github.com/Kshitizchahar/videochat_app/assets/72927437/228ed37e-5c0c-4974-a4cc-e7820027999b)
 ![5](https://github.com/Kshitizchahar/videochat_app/assets/72927437/f1956b1a-ebe6-4aac-bbd6-fb8ea132cddf)
 ![6](https://github.com/Kshitizchahar/videochat_app/assets/72927437/da21aeb8-49d4-48b3-88e7-9dfe1b782630)
-![7](https://github.com/Kshitizchahar/videochat_app/assets/72927437/83acf679-c45d-45d7-82f0-574f9551d655)
+![7](https://github.com/Kshitizchahar/videochat_app/assets/72927437/725366dc-5096-479c-b37e-d8df03b5bd1d)
+
+
 
 
 
