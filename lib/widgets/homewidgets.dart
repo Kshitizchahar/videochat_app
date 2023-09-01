@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:videochat_app/utils/colors.dart';
@@ -47,6 +49,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
           Text(
             widget.text,
             style: GoogleFonts.poppins(
+                color: Colors.black,
                 fontSize: MediaQuery.of(context).size.height * 0.014,
                 fontWeight: FontWeight.w500),
           )

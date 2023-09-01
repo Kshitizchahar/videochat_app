@@ -1,5 +1,5 @@
 
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -13,6 +13,8 @@ class AuthMethods{
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Stream<User?> get authChanges => _auth.authStateChanges(); 
+
+  User get user => _auth.currentUser!;
 
   Future<bool> signInWithGoogle(BuildContext context) async{
     bool res = false;
@@ -47,5 +49,14 @@ class AuthMethods{
 
     }
     return res;
+  }
+  void signOut()async{
+    try{
+      _auth.signOut();
+
+    }catch(e){
+      print(e);
+    }
+
   }
 }

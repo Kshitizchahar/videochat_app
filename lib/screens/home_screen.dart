@@ -1,9 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:videochat_app/resources/auth_methods.dart';
+import 'package:videochat_app/screens/history_meeting_screen.dart';
+import 'package:videochat_app/screens/meeting_screen.dart';
 import 'package:videochat_app/utils/colors.dart';
-import 'package:videochat_app/widgets/homewidgets.dart';
+import 'package:videochat_app/widgets/custombutton.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,69 +23,48 @@ class __HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Widget> pages = [
+    MeetingScreen(),
+    HistoryMeeting(),
+    Center(child: Image.asset("assets/images/con1.jpg")),
+    Padding(
+      padding: EdgeInsets.all(15),
+      child: CustomButton(
+          text: "Log out", onPressed: () => AuthMethods().signOut()),
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: null,
           toolbarHeight: MediaQuery.of(context).size.height * 0.08,
           backgroundColor: backgroundColor,
-          title: Text("Meet & Chat"),
+          title:
+              Text("Meet & Chat", style: GoogleFonts.poppins(color: textcolor)),
           titleTextStyle: GoogleFonts.poppins(
               fontWeight: FontWeight.bold,
               fontSize: MediaQuery.of(context).size.height * 0.024),
           centerTitle: true,
           elevation: 0,
         ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                HomeWidgets(
-                  onPressed: () {},
-                  icon: Icons.videocam,
-                  text: "New Meeting",
-                ),
-                HomeWidgets(
-                  onPressed: () {},
-                  icon: Icons.add_box_rounded,
-                  text: "Join Meeting",
-                ),
-                HomeWidgets(
-                  onPressed: () {},
-                  icon: Icons.calendar_month,
-                  text: "Schedule",
-                ),
-                HomeWidgets(
-                  onPressed: () {},
-                  icon: Icons.arrow_upward,
-                  text: "Share Screen",
-                ),
-              ],
-            ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  "Create/Join meeting with just a click",
-                  style: GoogleFonts.poppins(
-                      fontSize: MediaQuery.of(context).size.height * 0.018,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
+        body: pages[_page],
         bottomNavigationBar: BottomNavigationBar(
           onTap: onPageChanged,
           type: BottomNavigationBarType.fixed,
           backgroundColor: footerColor,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: Colors.black,
           currentIndex: _page,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.meeting_room), label: "Meet & Chat"),
+              icon: Icon(
+                Icons.meeting_room,
+              ),
+              label: "Meet & Chat",
+            ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.lock_clock), label: "Meeting"),
             BottomNavigationBarItem(

@@ -20,7 +20,7 @@ class _CustomButtonState extends State<CustomButton> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           elevation: 10,
-          side: BorderSide(color: buttonColor),
+          side: BorderSide(color: Colors.black),
           minimumSize:
               Size(double.infinity, MediaQuery.of(context).size.height * 0.06),
           backgroundColor: buttonColor),
@@ -29,6 +29,7 @@ class _CustomButtonState extends State<CustomButton> {
         widget.text,
         style: GoogleFonts.poppins(
             fontSize: MediaQuery.of(context).size.height * 0.022,
+            color: Colors.black,
             fontWeight: FontWeight.w600),
       ),
     );
